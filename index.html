@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechFest '25 - RAHTRIYA RAKSHA UNIVERSITY</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @media (max-width: 768px) {
+      body {
+        background: radial-gradient(circle, #004e92, #000428);
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .event-logo {
+        height: 40px;
+      }
+      .navbar-toggler {
+        border: none;
+      }
+      .timeline-event {
+        padding: 15px;
+      }
+      .video-container iframe {
+        height: 250px;
+      }
+      .btn-outline-light {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Background Animation -->
+  <div id="mobile-bg" class="d-md-none"></div>
+  <script>
+    if (window.innerWidth <= 768) {
+      document.getElementById('mobile-bg').style.background = 'radial-gradient(circle, #004e92, #000428)';
+    }
+  </script>
+
+  <!-- Video Background Container (Desktop) -->
+  <div class="video-bg-container d-none d-md-block">
+    <video autoplay loop muted playsinline class="video-bg">
+      <source src="your-video-url.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- Particles Background (Desktop) -->
+  <div id="animated-bg" class="d-none d-md-block"></div>
+
+  <!-- Navigation Bar with Centered Logo and Brand Name Slot -->
+  <header class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand mx-auto" href="#">
+        <img src="logo.png" alt="Event Logo" class="event-logo me-2" />
+        TechFest '25
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="competition.html">Competition</a></li>
+          <li class="nav-item"><a class="nav-link" href="gamefest.html">Game Fest</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="d-flex align-items-center justify-content-center text-center" style="padding-top:60px;">
+    <div class="container hero-content">
+      <h1 class="display-3 animate-fadeInUp">Welcome to TechFest '25</h1>
+      <p class="lead animate-fadeInUp delay-1">Innovate. Inspire. Ignite.</p>
+      <a href="#timeline" class="btn btn-lg btn-outline-light animate-fadeInUp delay-2">Explore Events</a>
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section id="countdown" class="container text-center py-5">
+    <h2 class="section-title">Countdown to TechFest</h2>
+    <p id="countdown-timer" class="display-5"></p>
+  </section>
+
+  <!-- Interactive Event Timeline Section with Filters -->
+  <section id="timeline" class="container text-center py-5">
+    <h2 class="section-title">Event Timeline</h2>
+    <div class="btn-group mb-4" role="group" aria-label="Event Filters">
+      <button type="button" class="btn btn-outline-light filter-btn active" data-filter="all">All</button>
+      <button type="button" class="btn btn-outline-light filter-btn" data-filter="keynote">Keynote</button>
+      <button type="button" class="btn btn-outline-light filter-btn" data-filter="workshop">Workshop</button>
+      <button type="button" class="btn btn-outline-light filter-btn" data-filter="competition">Competition</button>
+      <button type="button" class="btn btn-outline-light filter-btn" data-filter="gamefest">Game Fest</button>
+    </div>
+    <div class="timeline">
+      <div class="timeline-event" data-category="keynote">
+        <h4>Opening Ceremony & Keynote Speech</h4>
+        <p>Day 1 - 9:00 AM</p>
+      </div>
+      <div class="timeline-event" data-category="workshop">
+        <h4>Tech Expo & Workshops</h4>
+        <p>Day 1 - 11:00 AM</p>
+      </div>
+      <div class="timeline-event" data-category="competition">
+        <h4>Coding Competition</h4>
+        <p>Day 2 - 10:00 AM</p>
+      </div>
+      <div class="timeline-event" data-category="workshop">
+        <h4>Panel Discussions</h4>
+        <p>Day 2 - 2:00 PM</p>
+      </div>
+      <div class="timeline-event" data-category="competition">
+        <h4>Robotics Competition</h4>
+        <p>Day 3 - 1:00 PM</p>
+      </div>
+      <div class="timeline-event" data-category="keynote">
+        <h4>Closing Ceremony</h4>
+        <p>Day 3 - 5:00 PM</p>
+      </div>
+      <div class="timeline-event" data-category="gamefest">
+        <h4>Game Fest Extravaganza</h4>
+        <p>Day 2 - 6:00 PM</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Section -->
+  <section id="registration" class="container text-center py-5">
+    <h2 class="section-title">Registration</h2>
+    <p>Register now to secure your spot at TechFest '25!</p>
+    <a href="#" class="btn btn-lg btn-outline-light">Register Now</a>
+  </section>
+
+  <!-- Competition Section -->
+  <section id="competition" class="container text-center py-5">
+    <h2 class="section-title">Competition</h2>
+    <!-- Desktop: Detailed Competition Cards -->
+    <div class="row g-4 d-none d-md-flex">
+      <!-- Reverse Engineering Contest Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">Reverse Engineering Contest</h5>
+            <p class="card-text">Test your skills by deconstructing complex systems.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tech Debates Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">Tech Debates (Digital Dangal: Battle of Ideas)</h5>
+            <p class="card-text">Engage in spirited debates on innovative tech topics.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Circuit Design Challenge Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">Circuit Design Challenge</h5>
+            <p class="card-text">Design innovative circuits and showcase your engineering skills.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tech Startup Pitch Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">Tech Startup Pitch</h5>
+            <p class="card-text">Pitch your startup ideas and win exciting prizes.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Blind Coding Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">Blind Coding</h5>
+            <p class="card-text">Code without seeing the screen to prove your mettle.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- VR/AR Challenge Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">VR/AR Challenge</h5>
+            <p class="card-text">Showcase your skills in virtual or augmented reality innovation.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Drone Racing Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card">
+          <div class="card-body">
+            <h5 class="card-title">Drone Racing</h5>
+            <p class="card-text">Pilot drones through challenging courses at high speeds.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile: Only show an "Explore Competition" button -->
+    <div class="d-block d-md-none">
+      <p class="lead">Explore our exciting competition events.</p>
+      <a href="competition.html" class="btn btn-lg btn-outline-light">Explore Competition</a>
+    </div>
+  </section>
+
+  <!-- Game Fest Section -->
+  <section id="gamefest" class="container text-center py-5" style="background: rgba(0, 0, 0, 0.8); border-radius: 15px;">
+    <h2 class="section-title">Game Fest</h2>
+    <!-- Desktop: Detailed Game Fest Cards -->
+    <div class="row g-4 d-none d-md-flex">
+      <!-- Gaming Tournament Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card gamefest-card">
+          <div class="card-body">
+            <h5 class="card-title">Gaming Tournament</h5>
+            <p class="card-text">Compete in Esports tournaments for games like BGMI, Valorant, etc.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tech Treasure Hunt Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card gamefest-card">
+          <div class="card-body">
+            <h5 class="card-title">Tech Treasure Hunt</h5>
+            <p class="card-text">Solve clues and complete challenges to uncover hidden tech secrets.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Code Golf Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card gamefest-card">
+          <div class="card-body">
+            <h5 class="card-title">Code Golf</h5>
+            <p class="card-text">Solve programming challenges using the least amount of code possible.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile: Only show an "Explore Gamefest" button -->
+    <div class="d-block d-md-none">
+      <p class="lead">Explore our exciting Game Fest events.</p>
+      <a href="gamefest.html" class="btn btn-lg btn-outline-light">Explore Gamefest</a>
+    </div>
+  </section>
+
+  <!-- Sponsors Section -->
+  <section id="sponsors" class="container text-center py-5">
+    <h2 class="section-title">Sponsors</h2>
+    <p>We are proud to be supported by industry leaders.</p>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="container text-center py-5">
+    <h2 class="section-title">About SASET</h2>
+    <p>
+      SASET is the premier technology festival hosted by RAHTRIYA RAKSHA UNIVERSITY. Our mission is to inspire innovation and excellence in technology and defence.
+      Join us for an unforgettable experience featuring competitions, workshops, exhibitions, and much more.
+    </p>
+    <a href="about.html" class="btn btn-outline-light">Read More</a>
+  </section>
+
+  <!-- Video Section -->
+  <section id="video" class="container text-center py-5">
+    <h2 class="section-title">TechFest Highlights</h2>
+    <div class="video-container">
+      <iframe width="100%" height="450" src="https://www.youtube.com/embed/your-video-id" title="TechFest Highlights" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <a href="video.html" class="btn btn-outline-light mt-3">Watch More</a>
+  </section>
+
+  <!-- Event Venue Section -->
+  <section id="venue" class="container text-center py-5">
+    <h2 class="section-title">Event Venue</h2>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container text-center py-5">
+    <h2 class="section-title">Contact Us</h2>
+    <p>Follow us on social media and get in touch.</p>
+    <div>
+      <a href="#" class="text-cyan me-3"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="#" class="text-cyan me-3"><i class="fab fa-twitter fa-2x"></i></a>
+      <a href="#" class="text-cyan me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-3">
+    &copy; 2025 TechFest. All Rights Reserved.
+  </footer>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

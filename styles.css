@@ -1,0 +1,171 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+#animated-bg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+
+/* Video Background */
+.video-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -3;
+}
+.video-bg {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+/* Parallax Sections */
+.parallax {
+  background-attachment: fixed;
+}
+
+/* Navigation Bar */
+.navbar {
+  background: rgba(0, 0, 0, 0.8);
+}
+.nav-link {
+  color: cyan !important;
+}
+.nav-link:hover {
+  text-shadow: 0 0 10px cyan;
+}
+
+/* Logo */
+.event-logo {
+  height: 50px;
+  width: auto;
+}
+
+/* Hero Section */
+#hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 60px;
+  position: relative;
+  z-index: 1;
+}
+.hero-content h1 {
+  color: cyan;
+  text-shadow: 0 0 15px cyan;
+}
+.hero-content p {
+  color: white;
+}
+.btn-outline-light {
+  border-color: cyan;
+  color: cyan;
+}
+.btn-outline-light:hover {
+  background-color: cyan;
+  color: black;
+}
+
+/* Section Titles */
+.section-title {
+  text-transform: uppercase;
+  color: cyan;
+  text-shadow: 0 0 10px cyan;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+.timeline-event {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-left: 3px solid cyan;
+  transition: transform 0.3s;
+}
+.timeline-event:hover {
+  transform: translateX(10px);
+}
+
+/* Competition Cards */
+.gamefest-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid cyan;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.gamefest-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px cyan;
+}
+
+/* GameFest Cards */
+.competition-card {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid cyan;
+  color: white;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.competition-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px cyan;
+}
+
+/* Map Container */
+.map-container iframe {
+  border: 2px solid cyan;
+  border-radius: 8px;
+}
+
+/* Video Container */
+.video-container iframe {
+  border: 2px solid cyan;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 2px solid cyan;
+}
+
+/* Animations */
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+.delay-1 {
+  animation-delay: 0.5s;
+}
+.delay-2 {
+  animation-delay: 1s;
+}
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

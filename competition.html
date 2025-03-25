@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Competition - TechFest '25</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Desktop Background Animation (unchanged) */
+    #competition-bg {
+      position: fixed;
+      top: 60px; /* Adjust based on your navbar height */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 60px); /* Prevent overlapping the navbar */
+      z-index: -1;
+      background: linear-gradient(45deg, #0f2027, #203a43, #2c5364);
+      background-size: 200% 200%;
+      animation: swirlAnimation 20s ease infinite;
+    }
+    @keyframes swirlAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .floating-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #00ffff;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: driftAnimation 12s infinite ease-in-out;
+    }
+    @keyframes driftAnimation {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+      50% { transform: translate(20vw, -40vh) scale(1.2); opacity: 0.8; }
+      100% { transform: translate(0, -80vh) scale(0.8); opacity: 0.4; }
+    }
+    /* Navbar: Keep same as Home Page */
+    header.navbar {
+      background: radial-gradient(circle, rgba(15,32,39,0.9), rgba(32,58,67,0.9), rgba(44,83,100,0.9));
+    }
+    /* Competition Cards with Slide In Animation */
+    .competition-card {
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid cyan;
+      color: white;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: cardSlideIn 1s forwards;
+    }
+    @keyframes cardSlideIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .competition-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px cyan;
+    }
+    .card-body, .card-footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .card-footer a {
+      margin-top: 10px;
+    }
+    /* Mobile Background Animation: Only on mobile devices */
+    #competition-mobile-bg {
+      display: none;
+    }
+    @media (max-width: 768px) {
+      /* Hide desktop background on mobile */
+      #competition-bg { display: none; }
+      #competition-mobile-bg {
+        display: block;
+        position: fixed;
+        top: 56px; /* Adjust based on mobile navbar height */
+        left: 0;
+        width: 100%;
+        height: calc(100% - 56px);
+        z-index: -1;
+        background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a2a2a);
+        background-size: 300% 300%;
+        animation: mobileBgAnimation 12s linear infinite;
+      }
+      @keyframes mobileBgAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .competition-card { margin-bottom: 15px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Desktop Background Animation -->
+  <div id="competition-bg" class="d-none d-md-block"></div>
+  <script>
+    // Create floating particles for the desktop background animation
+    document.addEventListener("DOMContentLoaded", function () {
+      const bg = document.getElementById("competition-bg");
+      for (let i = 0; i < 30; i++) {
+        let particle = document.createElement("div");
+        particle.className = "floating-particle";
+        particle.style.left = Math.random() * 100 + "vw";
+        particle.style.top = Math.random() * 100 + "vh";
+        particle.style.animationDuration = (Math.random() * 3 + 6) + "s"; // Duration between 6-9 seconds
+        particle.style.animationDelay = Math.random() * 5 + "s";
+        bg.appendChild(particle);
+      }
+    });
+  </script>
+
+  <!-- Mobile Background Animation -->
+  <div id="competition-mobile-bg" class="d-md-none"></div>
+
+  <!-- Navigation Bar (same as Home Page) -->
+  <header class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Event Logo" class="event-logo me-2" />
+        TechFest '25
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavCompetition">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavCompetition">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Competition</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section for Competition -->
+  <section id="competition-hero" class="d-flex align-items-center justify-content-center" style="padding-top: 80px; text-align: center; color: white;">
+    <div class="hero-content">
+      <h1 class="display-2">Competition Events</h1>
+      <p class="lead">Showcase your skills and compete with the best!</p>
+    </div>
+  </section>
+
+  <!-- Competition Events Section -->
+  <section id="competition-events" class="container py-5">
+    <div class="row g-4">
+      <!-- Reverse Engineering Contest Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Reverse Engineering Contest</h5>
+            <p class="card-text">Break down systems to uncover hidden secrets.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tech Debates Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Tech Debates (Digital Dangal: Battle of Ideas)</h5>
+            <p class="card-text">Engage in spirited debates on innovative tech topics.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Circuit Design Challenge Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Circuit Design Challenge</h5>
+            <p class="card-text">Design innovative circuits and showcase your engineering skills.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Tech Startup Pitch Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Tech Startup Pitch</h5>
+            <p class="card-text">Pitch your startup ideas and win exciting prizes.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Blind Coding Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Blind Coding</h5>
+            <p class="card-text">Code without seeing the screen to prove your mettle.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- VR/AR Challenge Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">VR/AR Challenge</h5>
+            <p class="card-text">Showcase your skills in virtual or augmented reality innovation.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+      <!-- Drone Racing Card -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card competition-card h-100">
+          <div class="card-body">
+            <h5 class="card-title">Drone Racing</h5>
+            <p class="card-text">Pilot drones through challenging courses at high speeds.</p>
+          </div>
+          <div class="card-footer d-flex">
+            <a href="#" class="btn btn-outline-light flex-fill me-2">Register</a>
+            <a href="#" class="btn btn-outline-light flex-fill">Explore</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional Contact Section -->
+  <section id="contact" class="container text-center py-5">
+    <h2 class="section-title">Contact Us</h2>
+    <p>For any queries regarding the competition, feel free to reach out.</p>
+    <div>
+      <a href="#" class="text-cyan me-3"><i class="fab fa-instagram fa-2x"></i></a>
+      <a href="#" class="text-cyan me-3"><i class="fab fa-twitter fa-2x"></i></a>
+      <a href="#" class="text-cyan me-3"><i class="fab fa-linkedin fa-2x"></i></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center p-3">
+    &copy; 2025 TechFest. All Rights Reserved.
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
